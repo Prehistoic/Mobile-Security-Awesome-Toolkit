@@ -10,6 +10,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 - [Dynamic Analysis Tools](#dynamic-analysis-tools)
 - [Decompilers](#decompilers)
 - [Malware Analysis](#malware-analysis)
+- [Emulators](#emulators)
 - [Misc](#misc)
 
 ## Static Analysis Tools
@@ -21,6 +22,8 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ## Decompilers
 
 ## Malware Analysis
+
+## Emulators
 
 ## Misc
 - [ADB](./tools/ADB.md)

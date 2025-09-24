@@ -15,11 +15,11 @@ This repository aims at gathering a list of tools and resources for mobile pente
 # 📝 Contents
 
 ## Android
-- [Android Tools](#docs/android/tools.md)
-- [Android Guides](#docs/android/guides.md)
-- [Android Resources](#docs/android/resources.md)
+- [Android Tools](docs/android/tools.md)
+- [Android Guides](docs/android/guides.md)
+- [Android Resources](docs/android/resources.md)
 
 ## iOS
-- [iOS Tools](#docs/iOSTools.md)
-- [iOS Guides](#docs/iOSGuides.md)
-- [iOS Resources](#docs/iOSResources.md)
+- [iOS Tools](docs/ios/tools.md)
+- [iOS Guides](docs/ios/guides.md)
+- [iOS Resources](docs/ios/resources.md)

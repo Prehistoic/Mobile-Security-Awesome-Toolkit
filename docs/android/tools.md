@@ -11,7 +11,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 - [Decompilers](#decompilers)
 - [Malware Analysis](#malware-analysis)
 - [Emulators](#emulators)
-- [Root](#root)
+- [Rooting](#rooting)
 - [Misc](#misc)
 
 ## Static Analysis Tools
@@ -26,7 +26,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 
 ## Emulators
 
-## Root
+## Rooting
 
 ## Misc
 - [ADB](./tools/ADB.md) - The Android Pocket Knife Army tool

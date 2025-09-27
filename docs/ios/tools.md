@@ -8,7 +8,7 @@ Curated list of awesome iOS tools for pentesting and reverse engineering.
 - [Static Analysis Tools](#static-analysis-tools)
 - [Dynamic Analysis Tools](#dynamic-analysis-tools)
 - [Decompilers](#decompilers)
-- [Jailbreak](#jailbreak)
+- [Jailbreaking](#jailbreaking)
 - [Misc](#misc)
 
 ## Static Analysis Tools
@@ -17,6 +17,6 @@ Curated list of awesome iOS tools for pentesting and reverse engineering.
 
 ## Decompilers
 
-## Jailbreak
+## Jailbreaking
 
 ## Misc

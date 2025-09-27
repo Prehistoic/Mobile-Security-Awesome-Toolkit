@@ -29,4 +29,4 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ## Root
 
 ## Misc
-- [ADB](./tools/ADB.md)
+- [ADB](./tools/ADB.md) - The Android Pocket Knife Army tool

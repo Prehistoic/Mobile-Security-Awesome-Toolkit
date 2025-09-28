@@ -1,5 +1,4 @@
 # ADB
-
 - [Description](#description)
 - [Installation](#installation)
   - [Enable USB Debugging](#enable-usb-debugging)
@@ -24,7 +23,6 @@
   - [adb sideload](#adb-sideload)
   - [adb remount](#adb-remount)
   - [adb wait-for-device](#adb-wait-for-device)
-
 
 ## Description
 

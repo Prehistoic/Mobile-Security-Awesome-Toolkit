@@ -21,6 +21,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ## Dynamic Analysis Tools
 
 ## Decompilers
+- [Apktool](./tools/apktool.md) - Popular tool for decompiling/recompiling APK files
 
 ## Malware Analysis
 
@@ -30,3 +31,4 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 
 ## Misc
 - [ADB](./tools/ADB.md) - The Android Pocket Knife Army tool
+- [Uber Apk Signer](./tools/uber-apk-signer.md) - CLI tool for signing and zip aliging APKs

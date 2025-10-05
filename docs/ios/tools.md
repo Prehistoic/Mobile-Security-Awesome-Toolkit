@@ -16,6 +16,7 @@ Curated list of awesome iOS tools for pentesting and reverse engineering.
 ## Dynamic Analysis Tools
 
 ## Decompilers
+- [Ghidra](../common/tools/ghidra.md) - Open-source Software Engineering Reverse Framework developed by the NSA
 
 ## Jailbreaking
 

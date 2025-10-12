@@ -21,24 +21,24 @@ It supports all Android signing schemes from v1 to v4.
 
 - Basic usage
 
-```
+```sh
 java -jar uber-apk-signer.jar --apks /path/to/apks
 ```
 
 - Overriding signature on already signed APK
 
-```
+```sh
 java -jar uber-apk-signer.jar --apks /path/to/signed/apk --allowResign
 ```
 
 - Signing with a provided key
 
-```
+```sh
 java -jar uber-apk-signer.jar --apks /path/to/apks --ks [keystore] --ksPass [keystore_password] --ksAlias [key_alias] --ksKeyPass [key_password]
 ```
 
 - Verify APK signature
 
-```
+```sh
 java -jar uber-apk-signer.jar --apks /path/to/apks -y
 ```

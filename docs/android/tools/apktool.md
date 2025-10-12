@@ -56,7 +56,7 @@ Apktool decompiles the .dex files into .smali files.
 
 ### Decompiling an APK
 
-```
+```sh
 apktool d /path/to/your-app.apk
 ```
 
@@ -69,6 +69,6 @@ apktool d /path/to/your-app.apk
 
 ### Recompiling an APK
 
-```
+```sh
 apktool b path/to/your-app-folder
 ```

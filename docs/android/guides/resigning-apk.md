@@ -14,7 +14,7 @@
 
 If you don't already have a keystore, you need to create one.
 
-```
+```sh
 keytool -genkey -v -keystore my-release-key.jks -alias -my-alias -keyalg RSA -keysize 2048 -validity 10000
 ```
 
@@ -22,13 +22,13 @@ This command will prompt you for a password the keystore, a password for the key
 
 ## Step 2: Zipalign the APK
 
-```
+```sh
 zipalign -v 4 my-unsigned-app.apk my-aligned-app.apk
 ```
 
 ## Step 3: Sign the APK
 
-```
+```sh
 apksigner sign --ks my-release-key.jsk --out my-signed-app.apk my-aligned-app.apk
 ```
 

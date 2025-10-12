@@ -27,22 +27,22 @@ Run `jadx-gui` from the `bin` directory
 ### CLI
 
 - Basic Decompilation
-```
+```sh
 jadx -d app_source my_application.apk
 ```
 
 - Decompiling only source code (skipping resources)
-```
+```sh
 jadx -d source_only --no-res my_application.apk
 ```
 
 - Decompiling only resources (skipping source code)
-```
+```sh
 jadx -d resources_only --no-src my_application.apk
 ```
 
 - Enabling Deobfuscation
-```
+```sh
 jadx -d output --deobf my_obfuscated_app.apk
 ```
 

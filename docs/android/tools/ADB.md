@@ -62,7 +62,7 @@ When you connect your device, you'll likely see a prompt on your phone asking yo
 `adb devices` list all connected devices and their corresponding serial numbers.
 
 Sample output :
-```
+```sh
 List of devices attached
 emulator-5554   device
 8a928c2         device
@@ -70,7 +70,7 @@ emulator-5554   device
 
 It's possible to get more details with `adb devices -l`
 
-```
+```sh
 List of devices attached
 emulator-5554          device product:sdk_gphone_x86 model:sdk_gphone_x86 device:generic_x86_arm
 8a928c2                device usb:1-5 product:walleye model:Pixel_2XL device:walleye transportid:1
@@ -78,7 +78,7 @@ emulator-5554          device product:sdk_gphone_x86 model:sdk_gphone_x86 device
 
 If several devices are attached, it is necessary to specify which one to target. The syntax is
 
-```
+```sh
 adb -s [serial_number] [command]
 ```
 
@@ -91,7 +91,7 @@ For convenience, ADB also offers a few other flags to target devices when a sing
 
 By default ADB starts in non-root mode. If the phone is rooted it's possible to start it in **root mode** which will allow to run more privileged commands.
 
-```
+```sh
 adb root
 ```
 
@@ -99,7 +99,7 @@ adb root
 
 `adb push` and `adb pull` respectively allow to upload and download files.
 
-```
+```sh
 adb push sample.txt /sdcard/
 adb pull /sdcard/sample.txt .
 ```
@@ -108,19 +108,19 @@ adb pull /sdcard/sample.txt .
 
 `adb install` allows to install an APK file to the connected device.
 
-```
+```sh
 adb install [path_to_apk]
 ```
 
 It will fail if an app with the same package name is already installed (`INSTALL_FAILED_ALREADY_EXISTS`). To install a new version of an existing app the `-r` flag is needed (used to be `-k` in the past).
 
-```
+```sh
 adb install -r [path_to_apk]
 ```
 
 Note that applications installed with adb will by default go to internal storage. If (especially for storage volume reasons) you need to install an app in **shared storage**, you can use the `-s` flag.
 
-```
+```sh
 adb install -s [path_to_apk]
 ```
 
@@ -128,13 +128,13 @@ adb install -s [path_to_apk]
 
 It is also possible to install several apps at the same time (useful for multidex apps)
 
-```
+```sh
 adb install-multiple app1.apk app2.apk app3.apk
 ```
 
 Finally to remove an existing app :
 
-```
+```sh
 adb uninstall [package_name]
 ```
 
@@ -147,19 +147,19 @@ adb uninstall [package_name]
 `pm` for Package Manager holds some very useful commands to manage apps on the device.
 
 - List installed packages
-```
+```sh
 adb shell pm list packages
 ```
 - Get storage path for an app
-```
+```sh
 adb shell pm path [package_name]
 ```
 - List user accounts
-```
+```sh
 adb shell pm list users
 ```
 - Hide packages (useful for disabling pre-installed apps)
-```
+```sh
 adb shell pm hide [package_name]
 ```
 
@@ -170,30 +170,30 @@ adb shell pm hide [package_name]
 `am start` can be used to launch activities
 
 - Launch an Activity by Component Name
-```
+```sh
 adb shell am start -n com.example.app/.MainActivity
 ```
 - Launch an Activity with an Action and Data
-```
+```sh
 adb shell am start -a android.intent.action.VIEW -d https://www.google.com
 ```
 - Launch an Activity with Extras
-```
+```sh
 adb shell am start -n com.example.app/.DisplayMessageActivity --es "message" "Hello from ADB"
 ```
 
 `am broadcast` is used to send a broadcast intent
 
 - Send a Broadcast by Action
-```
+```sh
 adb shell am broadcast -a com.example.app.MY_CUSTOM_ACTION
 ```
 - Send a Broadcast to a specific Receiver
-```
+```sh
 adb shell am broadcast -n com.example.app/.MyReceiver -a com.example.app.MY_CUSTOM_ACTION
 ```
 - Send a Broadcast with Extras
-```
+```sh
 adb shell am broadcast -a com.example.app.MY_CUSTOM_ACTION --es "data_key" "some_value"
 ```
 
@@ -202,43 +202,43 @@ adb shell am broadcast -a com.example.app.MY_CUSTOM_ACTION --es "data_key" "some
 `content` is used to interact with Content Provider's data. It supports standard SQL-like operations: `query`, `insert`, `update` and `delete`. The `content://` URI is required.
 
 - Query a Content Provider
-```
+```sh
 adb shell content query --uri content://settings/secure --where "name='default_input_method'"
 ```
 - Insert a row in a Content Provider
-```
+```sh
 adb shell content insert --uri content://settings/secure --bind name:s:my_new_setting --bind value:s:test_value
 ```
 - Update an existing record
-```
+```sh
 adb shell content update --uri content://settings/secure -bind value:s:new_value --where "name='my_new_setting'"
 ```
 - Delete a record
-```
+```sh
 adb shell content delete --uri content://settings/secure --where "name='my_new_setting'"
 ```
 
 #### Other useful commands
 
 - Take a screenshot
-```
+```sh
 adb shell screencap /sdcard/screenshot.png
 ```
 - Record the screen
-```
+```sh
 adb shell screenrecord /sdcard/recording.mp4
 ```
 - Get detailed info about system services
-```
+```sh
 adb shell dumpsys batteryinfo
 ```
 - Get / set system properties
-```
+```sh
 adb shell setprop ro.sf.lcd_density 240
 adb shell getprop ro.product.cpu.abi
 ```
 - Simulate user input
-```
+```sh
 adb shell input tap 500 700
 adb shell input text "Hello, Android!"
 adb shell input swipe 100 500 300 500
@@ -251,13 +251,13 @@ adb shell input keyevent 24
 
 Use the `-c` flag to clear the cache :
 
-```
+```sh
 adb logcat -c
 ```
 
 Use the `-d` flag to save logs to a file :
 
-```
+```sh
 adb logcat -d [path_to_file]
 ```
 
@@ -273,7 +273,7 @@ adb logcat -d [path_to_file]
 
 `adb tcpip` allows to switch from USB to TCP/IP mode for ADB connections (to connect wirelessly)
 
-```
+```sh
 adb tcpip 5555
 ```
 
@@ -281,7 +281,7 @@ adb tcpip 5555
 
 In TCP/IP mode, `adb connect` allows to connect to the Android device.
 
-```
+```sh
 adb connect [device_ip]:[port]
 ```
 
@@ -289,7 +289,7 @@ adb connect [device_ip]:[port]
 
 `adb forward` allows to set up port forwarding between your computer and Android device.
 
-```
+```sh
 adb forward tcp:5000 tcp:6000
 ```
 
@@ -298,12 +298,12 @@ adb forward tcp:5000 tcp:6000
 `adb backup` can be used to create a backup of the device or of specific apps.
 
 Creating a full backup of all app data :
-```
+```sh
 adb backup -all -f backup.ab
 ```
 
 Creating a backup of a single application
-```
+```sh
 adb backup -f backup.ab [package_name]
 ```
 
@@ -314,7 +314,7 @@ adb backup -f backup.ab [package_name]
 
 `adb restore` can then be used to restore an existing backup.
 
-```
+```sh
 adb restore backup.ab
 ```
 
@@ -322,7 +322,7 @@ adb restore backup.ab
 
 `adb sideload` can be used to flash zip files, especially OTA updates without transferring them first
 
-```
+```sh
 adb sidelod update.zip
 ```
 
@@ -335,7 +335,7 @@ This command requires root access on the device. Need to run `adb root` first.
 **Note:** on Android 7.0+ there are security measures that will prevent that. To disable them use `adb disable-verity`, might need `adb reboot` after.
 
 **Alternative:** If `adb remount` fails, you can try the following commands :
-```
+```sh
 adb shell
 su
 mount -o rw,remount /system
@@ -345,6 +345,6 @@ mount -o rw,remount /system
 
 `adb wait-for-device` can be used to wait for a device to be connected to run a script. Useful for automation purposes !
 
-```
+```sh
 adb wait-for-device shell [command]
 ```

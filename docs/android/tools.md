@@ -19,6 +19,11 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ## De-Obfuscation
 
 ## Dynamic Analysis Tools
+- [Drozer](./tools/drozer.md) - Android Security Testing Framework using a pseudo-malicious application agent
+
+### Dynamic Instrumentation
+
+### Networking
 
 ## Decompilers
 - [JADX](./tools/JADX.md) - Decompiles APK into Java source code

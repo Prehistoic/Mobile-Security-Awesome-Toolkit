@@ -29,7 +29,7 @@ zipalign -v 4 my-unsigned-app.apk my-aligned-app.apk
 ## Step 3: Sign the APK
 
 ```sh
-apksigner sign --ks my-release-key.jsk --out my-signed-app.apk my-aligned-app.apk
+apksigner sign --ks my-release-key.jks --out my-signed-app.apk my-aligned-app.apk
 ```
 
 ## Alternative: Uber Apk Signer

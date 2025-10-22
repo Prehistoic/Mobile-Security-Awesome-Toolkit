@@ -28,7 +28,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ## Decompilers
 - [JADX](./tools/JADX.md) - Decompiles APK into Java source code
 - [Apktool](./tools/apktool.md) - Popular tool for decompiling/recompiling APK files
-- [Ghidra](../common/tools/ghidra.md) - Open-source Software Engineering Reverse Framework developed by the NSA
+- [Ghidra](./tools/ghidra.md) - Open-source Software Engineering Reverse Framework developed by the NSA
 
 ## Malware Analysis
 

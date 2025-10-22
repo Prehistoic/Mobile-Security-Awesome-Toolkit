@@ -1,4 +1,13 @@
 # Drozer
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Option 1: Connect to the phone via network](#option-1-connect-to-the-phone-via-network)
+  - [Option 2: Connect to the phone via USB](#option-2-connect-to-the-phone-via-usb)
+- [Useful Commands](#useful-commands)
+  - [Managing Drozer console \& session](#managing-drozer-console--session)
+  - [Information Gathering](#information-gathering)
+  - [Component Exploitation](#component-exploitation)
 
 ## Description
 

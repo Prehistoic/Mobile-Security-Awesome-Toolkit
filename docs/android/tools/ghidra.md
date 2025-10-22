@@ -23,8 +23,7 @@ Capabilities include disassembly, assembly, decompilation, graphing, and scripti
 - Launch Ghidra with `ghidraRun`
 - Create a **New Project** (`File > New Project`)
 - **Import the Binary**: `File > Import File` and select target file
-  - For Android, you can select the APK file directly. Ghidra supports both `.dex` and `.so` files
-  - For iOS, extract the main Mach-O executable from the IPA bundle
+  - For Android, you can select the APK file directly. Ghidra also supports both `.dex` and `.so` files
 - **Analyze the Binary**: double-click the imported file to open the **Code Browser**, click **Yes** to run the initial auto-analysis
 
 ## Tips & Tricks

@@ -1,7 +1,5 @@
 # Android Tools
 - APKid
-- Frida (for Android)
-- Objection (for Android)
 - MobSF
 - Android Studio
 - Dexcalibur
@@ -20,9 +18,11 @@
 - Beerus
 
 # Android Guides
+- How to create custom Frida scripts
 - Disabling SSL Pinning
 - Bypassing root checks
 - Bypassing emulator checks
+- Intercepting network
 - Disabling SSL Pinning in Flutter Apps (https://blog.nviso.eu/2019/08/13/intercepting-traffic-from-android-flutter-applications/)
 - Patching Android ARM46 library initializers for easy Frida instrumentation (https://blog.nviso.eu/2025/10/14/patching-android-arm64-library-initializers-for-easy-frida-instrumentation-and-debugging/)
 - Exploiting webviews

@@ -22,6 +22,8 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 - [Drozer](./tools/drozer.md) - Android Security Testing Framework using a pseudo-malicious application agent
 
 ### Dynamic Instrumentation
+- [Frida](./tools/frida.md) - Dynamic instrumentation toolkit for runtime manipulation
+- [Objection](./tools/objection.md) - Runtime exploration tool with built-in commands for common mobile testing scenarios
 
 ### Networking
 

@@ -1,9 +1,6 @@
 # Apktool
 - [Description](#description)
 - [Installation](#installation)
-  - [Windows](#windows)
-  - [Linux](#linux)
-  - [MacOS](#macos)
 - [Usage](#usage)
   - [Decompiling an APK](#decompiling-an-apk)
   - [Recompiling an APK](#recompiling-an-apk)
@@ -63,7 +60,7 @@ apktool d /path/to/your-app.apk
 **Tips and Tricks**
 - **Decoding Specific Parts** : if you only need to view resources or smali code, several options exist to skip decoding some parts of the APK (which might help when rebuilding and also makes things faster)
 
-    - `no--assets` prevents decoding unknown asset files
+    - `--no-assets` prevents decoding unknown asset files
     - `-r, --no-res` prevents decoding resources and keeps `resources.arsc` intact
     - `-s, --no-src` prevents disassembling dex files
 

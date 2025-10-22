@@ -95,7 +95,8 @@ See [Patching APK with Frida Gadget](../guides/patching-apk-with-frida-gadget.md
 
 ### frida-trace
 
-- `frida-trace -U -i "[keyword]"` : Traces all functions containing "keyword" in their name across all loaded modules on the USB device
+- `frida-trace -U -i [keyword]` : Traces all functions containing "keyword" in their name across all loaded modules on the USB device
+- `frida-trace -U -i [keyword] -N com.package.name` : Traces all functions containing "keyword" in specified application
 
 ### frida
 

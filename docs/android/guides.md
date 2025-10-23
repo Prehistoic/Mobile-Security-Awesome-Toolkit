@@ -10,3 +10,8 @@ Here you'll find guides on commonly used techniques for Android pentesting and r
 - [Java to Native Code Connection](./guides/java-to-native-code.md)
 - [Creating a custom Frida script](./guides/creating-custom-frida-script.md)
 - [Patching an APK with Frida Gadget](./guides/patching-apk-with-frida-gadget.md)
+- [Intercepting Android App Traffic](./guides/intercepting-android-app-traffic.md)
+
+## Ghidra Guides
+
+- [JNI Types in Ghidra](./guides/jni-types-in-ghidra.md)

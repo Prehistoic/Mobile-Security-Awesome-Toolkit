@@ -63,14 +63,35 @@ objection -g com.example.app explore
 - `jobs list` : Lists active background jobs
 
 ### Security Bypass Commands
+
+#### Android
 - `android sslpinning disable` : Hook and disable common SSL Pinning methods
 - `android root disable` : Hook and disable common root detection checks
 
+#### iOS
+- `ios sslpinning disable` : Hook and disable common SSL Pinning methods
+- `ios jailbreak disable` : Hook and disable common jailbreak detection checks
+
 ### Hooking and Class Analysis
+
+#### Android
 - `android hooking list classes` : List all Java classes loded in the app memory
 - `android hooking search classes <keyword>` : Search for Java classes whose names contain the keyword
 - `android hooking watch class <Class.Name>` : Hook all methods in a specified class and prints arguments and return values
 - `android hooking watch method <Class.Method>` : Hook a single method and print its arguments and return values
 
+#### iOS
+- `ios hooking list classes` : List all Java classes loded in the app memory
+- `ios hooking search classes <keyword>` : Search for Java classes whose names contain the keyword
+- `ios hooking watch class <Class.Name>` : Hook all methods in a specified class and prints arguments and return values
+- `ios hooking watch method <Class.Method>` : Hook a single method and print its arguments and return values
+
 ### Data Exploration Commands
+
+#### Android
 - `android sqlite query <DB path> "SELECT * ..."` : Run a SQLite query on a database file inside the app sandbox
+
+#### iOS
+- `ios keychain dump` : Dump all data stored in the application's Keychain
+- `ios plist cat Info.plist` : Print the content of a plist file
+- `ios nsuserdefaults get` : Dump data stored in NSUserDefaults

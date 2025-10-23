@@ -4,7 +4,6 @@
 - Dexcalibur
 - Obfu[DE]scate
 - Androidmeda
-- Burp Suite
 - Wireshark
 - fridump
 - Binder Trace
@@ -17,7 +16,7 @@
 - Beerus
 
 # Android Guides
-- Disabling SSL Pinning
+- Disabling SSL Pinning (https://blog.nviso.eu/2019/04/02/circumventing-ssl-pinning-in-obfuscated-apps-with-okhttp/)
 - Bypassing root checks
 - Bypassing emulator checks
 - Intercepting network

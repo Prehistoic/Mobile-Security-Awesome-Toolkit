@@ -5,7 +5,7 @@
 
 ## Description
 
-APKiD is a CLI tool providing information about how an APK was made. It identifies many compilers, packers, obfuscators. That's basically [PEiD](https://www.aldeid.com/wiki/PEiD) for Android.
+**APKiD** is a CLI tool providing information about how an APK was made. It identifies many compilers, packers, obfuscators. That's basically [PEiD](https://www.aldeid.com/wiki/PEiD) for Android.
 
 ## Installation
 

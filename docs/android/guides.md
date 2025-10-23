@@ -16,6 +16,7 @@ Here you'll find guides on commonly used techniques for Android pentesting and r
 
 ## Network Interception
 - [Intercepting Android App Traffic](./guides/intercepting-android-app-traffic.md)
+- [Troubleshooting Interception Common Issues](./guides/troubleshooting-interception-common-issues.md)
 
 ## Ghidra
 - [JNI Types in Ghidra](./guides/jni-types-in-ghidra.md)

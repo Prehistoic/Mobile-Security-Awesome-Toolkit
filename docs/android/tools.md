@@ -33,6 +33,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 - [Ghidra](./tools/ghidra.md) - Open-source Software Engineering Reverse Framework developed by the NSA
 
 ## Malware Analysis
+- [APKiD](./tools/APKiD.md) - Identifies compilers, packers, obfuscators...
 
 ## Emulators
 

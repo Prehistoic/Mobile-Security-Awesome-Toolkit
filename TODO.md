@@ -1,5 +1,4 @@
 # Android Tools
-- APKid
 - MobSF
 - Android Studio
 - Dexcalibur
@@ -18,7 +17,6 @@
 - Beerus
 
 # Android Guides
-- How to create custom Frida scripts
 - Disabling SSL Pinning
 - Bypassing root checks
 - Bypassing emulator checks

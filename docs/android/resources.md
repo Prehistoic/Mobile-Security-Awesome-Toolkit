@@ -14,6 +14,12 @@ Curated list of awesome Android resources for pentesting and reverse engineering
 
 ## Documentation
 
+### Generic Android Documentation
+- [Android API Levels](https://apilevels.com/) - Overview of all Android versions and their corresponding API levels
+
+### Intercepting Android app traffic
+- [Proxying Android app traffic - Common issues / checklist](https://blog.nviso.eu/2020/11/19/proxying-android-app-traffic-common-issues-checklist/) - Comprehensive troubleshooting checklist for interception issues
+
 ### Native Development & JNI
 - [JNI Specification](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html) - Official Oracle documentation for JNI
 - [JNI Functions](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/functions.html) - Official Oracle documentation for JNI functions

@@ -6,6 +6,7 @@
 - [Common Frida CLI Commands](#common-frida-cli-commands)
 - [Frida Scripts](#frida-scripts)
 - [Frida CodeShare](#frida-codeshare)
+- [Other Script Sources](#other-script-sources)
 
 ## Description
 
@@ -119,3 +120,6 @@ Developers around the world can share their best Frida scripts through [Frida Co
 
 ### Anti-Root Bypass Scripts
 - [fridantiroot](https://codeshare.frida.re/@dzonerzy/fridantiroot/)
+
+## Other Script Sources
+- [HTTP Toolkit Frida Interception and Unpinning](https://github.com/httptoolkit/frida-interception-and-unpinning)

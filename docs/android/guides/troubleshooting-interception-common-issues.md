@@ -389,11 +389,11 @@ See these blogposts for [ARMv7 (x86)](https://blog.nviso.eu/2019/08/13/intercept
 
 ##### Pinning in Xamarin and Unity applications
 
-Xamarin/Unity applications contain .dll files in the assemblies/ folder and these can be opened using .NET decompilers, for example [DNSpy](https://github.com/dnSpy/dnSpy) since it allows to modify the dll files.
+Xamarin/Unity applications contain .dll files in the assemblies/ folder and these can be opened using .NET decompilers, for example [dnSpy](https://github.com/dnSpy/dnSpy) since it allows to modify the dll files.
 
 **Solution**
 - Extract APK using [apktool](../tools/apktool.md) and locate .dll files
-- Open .dll files using [DNSpy](https://github.com/dnSpy/dnSpy) and locate HTTP pinning logic
+- Open .dll files using [dnSpy](https://github.com/dnSpy/dnSpy) and locate HTTP pinning logic
 - Modify logic either by modifying the C# code or the IL
 - Save the modified module
 - Overwrite the .dll files with the modified version

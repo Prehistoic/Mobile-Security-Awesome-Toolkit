@@ -2,6 +2,32 @@
 
 **Source**: https://blog.nviso.eu/2020/11/19/proxying-android-app-traffic-common-issues-checklist/
 
+- [Setting up the device](#setting-up-the-device)
+  - [Is your proxy configured on the device ?](#is-your-proxy-configured-on-the-device-)
+  - [Is Burp listening on all interfaces ?](#is-burp-listening-on-all-interfaces-)
+  - [Can your device connect to your proxy ?](#can-your-device-connect-to-your-proxy-)
+  - [Can you proxy HTTP traffic ?](#can-you-proxy-http-traffic-)
+  - [Is your Burp certificate installed on the device ?](#is-your-burp-certificate-installed-on-the-device-)
+  - [Is your Burp certificate installed as a root certificate ?](#is-your-burp-certificate-installed-as-a-root-certificate-)
+  - [Does your Burp certificate have an appropriate lifetime ?](#does-your-burp-certificate-have-an-appropriate-lifetime-)
+  - [Is your Burp certificate still valid ?](#is-your-burp-certificate-still-valid-)
+  - [Is TLS Pass Through disabled ?](#is-tls-pass-through-disabled-)
+- [Setting up the application](#setting-up-the-application)
+  - [Is the application proxy aware ?](#is-the-application-proxy-aware-)
+  - [Did the app fall back to non-proxy mode ?](#did-the-app-fall-back-to-non-proxy-mode-)
+  - [Is the application using custom ports ?](#is-the-application-using-custom-ports-)
+  - [Is the application using SSL pinning ?](#is-the-application-using-ssl-pinning-)
+    - [Pinning through android:networkSecurityConfig](#pinning-through-androidnetworksecurityconfig)
+    - [Pinning through OkHttp](#pinning-through-okhttp)
+    - [Pinning through OkHttp in obfuscated apps](#pinning-through-okhttp-in-obfuscated-apps)
+    - [Pinning through various libraries](#pinning-through-various-libraries)
+    - [Pinning in 3d party app frameworks](#pinning-in-3d-party-app-frameworks)
+      - [Figuring out if a 3d party app framework is used](#figuring-out-if-a-3d-party-app-framework-is-used)
+      - [Pinning in Flutter applications](#pinning-in-flutter-applications)
+      - [Pinning in Xamarin and Unity applications](#pinning-in-xamarin-and-unity-applications)
+- [What if you still can't intercept traffic ?](#what-if-you-still-cant-intercept-traffic-)
+
+
 ## Setting up the device
 
 ### Is your proxy configured on the device ?
@@ -236,4 +262,151 @@ In this case, ProxyDroid won't help, see options below :
 
 ### Is the application using SSL pinning ?
 
-TO CONTINUE
+If you're getting HTTPS connection failure in Burp's Event log dashboard => SSL pinning might be used.
+
+While many Frida scripts exist to bypass SSL Pinning, none of them will cover all cases. You might have to create your own custom one or combine several of them to achieve your goal.
+
+#### Pinning through android:networkSecurityConfig
+
+This type of pinning is done by specifying a XML file inside the `android:networkSecurityConfig` attribute in `AndroidManifest.xml`. Usually its called `network_security_config.xml`.
+
+**Example:**
+
+```xml
+<domain-config cleartextTrafficPermitted="false">
+    <domain includeSubdomains="true">https://brooklynservices.azurefd.net/api/</domain>
+    <pin-set>
+        <pin digest="SHA-256">4nplbWxhanJla2xtYXpqcmVtYWtsamprZX==</pin>
+        <pin digest="SHA-256">cmprYXplaW11bXJlYXprbGV6cmphbG1ybg==</pin>
+    </pin-set>
+</domain-config>
+```
+
+**Solution**
+- [Objection](../../common/tools/objection.md) and `android sslpinning disable`
+- Frida CodeShare : `frida -U --codeshare akabe1/frida-multiple-unpinning -f com.package.name`
+- (As a last resort) Remove the networkSecurityConfig setting in the Android manifest with [apktool](../tools/apktool.md)
+
+#### Pinning through OkHttp
+
+Another popular way of pinning domains is through the OkHttp library.
+
+**Sanity Check**
+- Use [apktool](../tools/apktool.md) to decompile the app
+- Go to the `smali` directory and grep for OkHttp and/or sha256
+
+```sh
+grep -ri "okhttp" ./ -B 5 -A 5
+grep -ri "sha256" ./ -B 5 -A 5
+```
+
+**Solution**
+- [Objection](../../common/tools/objection.md) and `android sslpinning disable`
+- Frida CodeShare : `frida -U --codeshare akabe1/frida-multiple-unpinning -f com.package.name`
+- (As a last resort) Decompile with [apktool](../tools/apktool.md) and modify the pinned domains. By default, OkHttp will allow connections that are not specifically pinned. So modifying the pinned domain will disable the pinning !
+
+#### Pinning through OkHttp in obfuscated apps
+
+Universal pinning scripts may work on obfuscated apps since they hook on Android librarires which can't be obfuscated. However if an app is using something else than a default Android library, the scripts will find to find the correct classes !
+
+A good example of this is OkHttp. When an app using OkHttp has been obfuscated, you'll have to figure out the obfuscated name of the `CertificatePinner.Builder` class.
+
+**Sanity Check**
+
+Depending on the obfuscation level you might still be able to see string references.
+
+- Use [apktool](../tools/apktool.md) to decompile the app
+- Go to the `smali` directory and grep for sha256
+
+```sh
+grep -ri "sha256" ./ -B 5 -A 5
+```
+
+**Note:** OkHttp classes and methods might be obfuscated so we don't grep for them !
+
+**Solution**
+
+Write your own Frida script to hook the obfuscated version of the `CertificatePinner.Builder` class.
+
+1. **Look for the [CertificatePinner.Builder.add()](https://square.github.io/okhttp/3.x/okhttp/okhttp3/CertificatePinner.Builder.html#add-java.lang.String-java.lang.String...-) method**
+
+```sh
+grep -ri "java/lang/String;\[Ljava/lang/String;)L" application/smali
+```
+
+There might be several hits, might need to hook them with Frida to see their arguments in order to find the right one.
+
+2. **Modify the following Frida script**
+
+```js
+Java.perform(function(){
+    var Pinner = Java.use("okhttp3.g$a");
+    Pinner.a.overload('java.lang.String', '[Ljava.lang.String;').implementation = function(a, b)
+    {
+        console.log("Disabling pin for " + a);
+        return this;
+    }
+});
+```
+
+#### Pinning through various libraries
+
+Instead of using the networkSecurityConfig or OkHttp, developers can also perform SSL pinning using many different standard Java classes or imported libraries. Additionally, some Java based third party app such as the **PhoneGap** or **AppCelerator** frameworks provide specific functions to the developer to add pinning to the application.
+
+**Solution**
+
+Our best bet in these cases is to try various anti-pinning scripts and monitor their output.
+
+Try to identify which classes or frameworks are being used to create a custom SSL pinning bypass script specific for the app.
+
+- [Objection](../../common/tools/objection.md) and `android sslpinning disable`
+- Frida CodeShare : 
+  - `frida -U --codeshare akabe1/frida-multiple-unpinning -f com.package.name`
+  - `frida -U --codeshare pcipolloni/universal-android-ssl-pinning-bypass-with-frida -f com.package.name`
+  - `frida -U --codeshare akasowdustbe1/universal-android-ssl-pinning-bypass-2 -f com.package.name`
+  - `frida -U --codeshare masbog/frida-android-unpinning-ssl -f com.package.name`
+  - `frida -U --codeshare segura2010/android-certificate-pinning-bypass -f com.package.name`
+  - `frida -U --codeshare akabe1/frida-universal-pinning-bypasser -f com.package.name`
+
+#### Pinning in 3d party app frameworks
+
+Third party app frameworks will have their own low-level implementation for TLS and HTTP so default pinning bypass scripts won't work.
+
+##### Figuring out if a 3d party app framework is used
+
+Look for these files :
+- Flutter: `myapp/lib/arm64-v8a/libflutter.so`
+- Xamarin: `myapp/unknown/assemblies/Mono.Android.dll`
+- Unity: `myapp/lib/arm64-v8a/libunity.so`
+
+##### Pinning in Flutter applications
+
+Flutter is proxy-unaware and doesn't use the system's CA store. Every Flutter app contains a full copy of trusted CAs which is used to validate connections. So while it most likely isn’t performing SSL pinning, it still won’t trust the root CA’s on your device and thus interception will not be possible.
+
+**Solution**
+
+See these blogposts for [ARMv7 (x86)](https://blog.nviso.eu/2019/08/13/intercepting-traffic-from-android-flutter-applications/) or [ARMv64 (x64)](https://blog.nviso.eu/2020/05/20/intercepting-flutter-traffic-on-android-x64/)
+
+##### Pinning in Xamarin and Unity applications
+
+Xamarin/Unity applications contain .dll files in the assemblies/ folder and these can be opened using .NET decompilers, for example [DNSpy](https://github.com/dnSpy/dnSpy) since it allows to modify the dll files.
+
+**Solution**
+- Extract APK using [apktool](../tools/apktool.md) and locate .dll files
+- Open .dll files using [DNSpy](https://github.com/dnSpy/dnSpy) and locate HTTP pinning logic
+- Modify logic either by modifying the C# code or the IL
+- Save the modified module
+- Overwrite the .dll files with the modified version
+- Repackage and resign the application
+- Reinstall the application and run
+
+---
+
+## What if you still can't intercept traffic ?
+
+Typical culprits:
+- Non-HTTP protocols
+- Very heavy obfuscation
+- Anti-tampering controls
+
+At this point you'll have to reverse engineer the application and write your own Frida scripts.

@@ -28,6 +28,8 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ### Networking
 - [Burp Suite](../common/tools/burp-suite.md) - Commercial tool for analyzing network traffic
 - [burpDrop](./tools/burpDrop.md) - Simplifies installing Burp Suite CA certificates into rooted Android devices or emulators
+- [ProxyDroid](./tools/ProxyDroid.md) - Application which uses iptables in order to forcefully redirect traffic to a proxy
+- [WireShark](../common/tools/WireShark.md) - Open-source network protocol analyzer
 - [Android Unpinner](https://github.com/mitmproxy/android-unpinner) - Automates certificate pinning removal from APKs
 
 ## Decompilers

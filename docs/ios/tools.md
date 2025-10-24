@@ -20,6 +20,7 @@ Curated list of awesome iOS tools for pentesting and reverse engineering.
 
 ### Networking
 - [Burp Suite](../common/tools/burp-suite.md) - Commercial tool for analyzing network traffic
+- [WireShark](../common/tools/WireShark.md) - Open-source network protocol analyzer
 
 ## Decompilers
 - [Ghidra](../common/tools/ghidra.md) - Open-source Software Engineering Reverse Framework developed by the NSA

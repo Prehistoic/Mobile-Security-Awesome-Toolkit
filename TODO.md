@@ -4,7 +4,6 @@
 - Dexcalibur
 - Obfu[DE]scate
 - Androidmeda
-- Wireshark
 - fridump
 - Binder Trace
 - Magisk (and modules)

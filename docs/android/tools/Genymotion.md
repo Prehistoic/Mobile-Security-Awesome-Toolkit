@@ -1,4 +1,12 @@
 # Genymotion
+- [Description](#description)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Step-by-Step Install Guide (Windows)](#step-by-step-install-guide-windows)
+  - [Step-by-Step Install Guide (Linux)](#step-by-step-install-guide-linux)
+- [Creating a new Virtual Device](#creating-a-new-virtual-device)
+- [Rooting Virtual Device (Android 12+)](#rooting-virtual-device-android-12)
+  - [Compiling RootToggle from source](#compiling-roottoggle-from-source)
 
 ## Description
 

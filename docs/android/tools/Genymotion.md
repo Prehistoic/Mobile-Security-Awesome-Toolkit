@@ -60,7 +60,7 @@ The **Genymotion Desktop** version is the most common choice.
     - **Load the NBD (Network Block Device) Module**
 
         ```sh
-        sudo modprobe ndb
+        sudo modprobe nbd
         ```
 
     - **Attach the QCOW2 Disk Image**

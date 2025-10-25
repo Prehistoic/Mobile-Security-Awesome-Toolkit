@@ -32,7 +32,6 @@ Don't forget to check existing awesome tools lists
 
 # iOS Tools
 - Frida (for iOS)
-- Objection (for iOS)
 
 # iOS Guides
 - How to jailbreak

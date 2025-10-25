@@ -15,7 +15,7 @@ Don't forget to check existing awesome tools lists
 - XPosed
 - AVD Emulator
 - Android Emuroot
-- https://github.com/budtmo/docker-android
+- Genymotion
 - Beerus
 
 # Android Guides

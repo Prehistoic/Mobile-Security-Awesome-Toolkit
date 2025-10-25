@@ -2,9 +2,12 @@
 
 **Source:** https://pit.bearblog.dev/modding-and-distributing-mobile-apps-with-frida/
 
-## Objective
-
 [Frida](../tools/frida.md) is most often used in its *no-bs* mode, with a host machine plugged via USB to a rooted phone. However it also supports autonomous script execution, which is ideal for modding.
+
+- [1. Create the Agent](#1-create-the-agent)
+- [2. Mod Development](#2-mod-development)
+- [3. Mod Distibution](#3-mod-distibution)
+  - [Notes for Split APKs](#notes-for-split-apks)
 
 ## 1. Create the Agent
 

@@ -54,9 +54,9 @@ The **Genymotion Desktop** version is the most common choice.
 
 ## Rooting Virtual Device (Android 12+)
 
-1. Download [RootToggle APK](https://gist.github.com/zlocate/0602976452215ff84901c1b032e91a4b/raw/86c2ec50995d9415e22ff188f6b68ca494c35c10/RootToggle-signed.apk)
+1. **Download** [RootToggle APK](https://gist.github.com/zlocate/0602976452215ff84901c1b032e91a4b/raw/86c2ec50995d9415e22ff188f6b68ca494c35c10/RootToggle-signed.apk)
 
-2. Install RootToggle as a System App
+2. **Install RootToggle as a System App**
     - **Load the NBD (Network Block Device) Module**
 
         ```sh
@@ -107,7 +107,7 @@ The **Genymotion Desktop** version is the most common choice.
         sudo qemu-nbd --disconnect /dev/nbd0
         ```
 
-3. Start the Emulator
+3. **Start the Emulator**
 
 Start your **Genymotion** emulator as usual. The `RootToggle` app should now be installed as a system app with the necessary permissions to modify `persist.sys.root_access`.
 

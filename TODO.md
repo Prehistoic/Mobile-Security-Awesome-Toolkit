@@ -15,7 +15,6 @@ Don't forget to check existing awesome tools lists
 - XPosed
 - AVD Emulator
 - Android Emuroot
-- Genymotion
 - Beerus
 
 # Android Guides

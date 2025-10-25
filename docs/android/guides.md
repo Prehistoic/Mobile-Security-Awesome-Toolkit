@@ -13,6 +13,7 @@ Here you'll find guides on commonly used techniques for Android pentesting and r
 ## Frida
 - [Patching an APK with Frida Gadget](./guides/patching-apk-with-frida-gadget.md)
 - [Creating a custom Frida script](./guides/creating-custom-frida-script.md)
+- [Modding and Distributing Mobile Apps with Frida](./guides/modding-apps-with-frida.md)
 
 ## Network Interception
 - [Intercepting Android App Traffic](./guides/intercepting-android-app-traffic.md)

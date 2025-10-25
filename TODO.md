@@ -1,3 +1,6 @@
+Don't forget to check existing awesome tools lists
+- https://github.com/user1342/Awesome-Android-Reverse-Engineering?tab=readme-ov-file
+
 # Android Tools
 - MobSF
 - Android Studio

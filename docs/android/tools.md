@@ -41,6 +41,7 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 - [APKiD](./tools/APKiD.md) - Identifies compilers, packers, obfuscators...
 
 ## Emulators
+- [Android Studio AVD](./tools/AndroidStudioAVD.md) - Android Studio integrated Android Device Manager and Emulator
 - [Genymotion](./tools/Genymotion.md) - Popular Android x86_64 emulator
 - [Docker-Android](./tools/docker-android.md) - Docker images for Android emulators
 

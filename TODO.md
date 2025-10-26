@@ -3,7 +3,6 @@ Don't forget to check existing awesome tools lists
 
 # Android Tools
 - MobSF
-- Android Studio
 - Dexcalibur
 - Obfu[DE]scate
 - Androidmeda
@@ -13,7 +12,6 @@ Don't forget to check existing awesome tools lists
 - Radare2
 - APKLab
 - XPosed
-- AVD Emulator
 - Android Emuroot
 - Beerus
 

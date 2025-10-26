@@ -2,6 +2,8 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Tips \& Tricks](#tips--tricks)
+  - [Android SDK Default Paths](#android-sdk-default-paths)
+  - [Android NDK Default Paths](#android-ndk-default-paths)
 
 ## Description
 
@@ -34,4 +36,19 @@ The installation process for **Android Studio** is generally straightforward, bu
 
 ## Tips & Tricks
 
-Nothing for now :'(
+### Android SDK Default Paths
+
+|Operating System|Default Android SDK Path|
+|--|--|
+|**Windows**|`C:\Users\YourUsername\AppData\Local\Android\Sdk`|
+|**macOS**|`/Users/YourUsername/Library/Android/sdk`|
+|**Linux**|`~/Android/Sdk` or `/home/YourUsername/Android/Sdk`|
+
+### Android NDK Default Paths
+
+The NDK is typically installed as a component **inside** the main Android SDK directory.
+
+|Component|Default Path (relative to **SDK root**)|Notes|
+|--|--|--|
+|**Current NDK**|`SDK_ROOT/ndk/version_number` (e.g., `ndk/25.1.8937393`)|For Android Studio versions 3.5 and later, NDKs are installed "side-by-side" in versioned folders within the `ndk` directory.|
+|**Legacy NDK**|`SDK_ROOT/ndk-bundle`|Used by older versions of Android Studio (pre-3.5). This path is now deprecated.|

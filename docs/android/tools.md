@@ -49,3 +49,4 @@ Curated list of awesome Android tools for pentesting and reverse engineering.
 ## Misc
 - [ADB](./tools/ADB.md) - The Android Pocket Knife Army tool
 - [Uber Apk Signer](./tools/uber-apk-signer.md) - CLI tool for signing and zip aliging APKs
+- [Android Studio](./tools/AndroidStudio.md) - Standard IDE for developing Android applications
